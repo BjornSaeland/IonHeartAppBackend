@@ -1,0 +1,28 @@
+
+*******************************************************************************************
+Gör inte detta!:
+Lägg in nedanstående i web.config i "<system.webServer>" under "<handlers>"
+
+<httpProtocol>
+      <customHeaders>
+        <add name="Access-Control-Allow-Origin" value="*" />
+        <add name="Access-Control-Allow-Headers" value="Content-Type" />
+        <add name="Access-Control-Allow-Methods" value="GET,POST,PUT,DELETE,OPTIONS" />
+        <add name="Access-Control-Allow-Credentials" value="true" />
+      </customHeaders>
+    </httpProtocol>
+*******************************************************************************************
+
+*******************************************************************************************
+Gör detta! 
+https://docs.microsoft.com/en-us/azure/app-service/app-service-web-tutorial-rest-api
+
+
+https://docs.microsoft.com/en-us/azure/app-service/app-service-web-tutorial-rest-api:
+skriv nedanstående i Azureportals Azure cli:
+az resource update --name web --resource-group IonicHeartRG --namespace Microsoft.Web --resource-type config --parent sites/IonHeartHealth --set properties.cors.allowedOrigins="['http://localhost:8000']" --api-version 2015-06-01
+*******************************************************************************************
+
+
+
+
